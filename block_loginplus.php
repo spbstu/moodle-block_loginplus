@@ -33,7 +33,7 @@ class block_loginplus extends block_login {
         foreach($authsequence as $authname) {
           $authplugin = get_auth_plugin($authname);
           $potentialidps = array_merge($potentialidps, 
-                           $authplugin->loginpage_idp_list($CFG->wwwrooot));
+                           $authplugin->loginpage_idp_list($CFG->wwwroot));
         }
 
 
