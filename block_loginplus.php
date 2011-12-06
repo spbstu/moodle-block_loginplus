@@ -19,7 +19,7 @@ class block_loginplus extends block_login {
     }
 
     function get_content () {
-      global $SESSION, $OUTPUT;
+      global $SESSION, $OUTPUT, $CFG;
 
       parent::init();
       parent::get_content();
