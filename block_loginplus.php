@@ -25,7 +25,6 @@ class block_loginplus extends block_login {
       parent::get_content();
 
       if (!isloggedin() or isguestuser()) {
-        $idps = '<hr/>';
 
         $authsequence = get_enabled_auth_plugins(true);
         $potentialidps = array();
@@ -36,6 +35,7 @@ class block_loginplus extends block_login {
                            $authplugin->loginpage_idp_list($CFG->wwwroot));
         }
 
+        $idps = '';
 
         if (!empty($potentialidps)) {
           ob_start();
@@ -44,7 +44,7 @@ class block_loginplus extends block_login {
           ob_end_clean();
         }
 
-        $this->content->footer .= $idps;
+        $this->content->text = $idps .= $this->content->text;
       }
 
       return $this->content;
